@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomCard extends StatefulWidget {
+class CustomCard extends StatelessWidget {
   final (String, String, String, String) item;
   final Widget? action;
   const CustomCard({
@@ -9,11 +9,6 @@ class CustomCard extends StatefulWidget {
     this.action,
   });
 
-  @override
-  State<CustomCard> createState() => _CustomCardState();
-}
-
-class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,7 +19,7 @@ class _CustomCardState extends State<CustomCard> {
         child: Column(
           children: [
             Image.asset(
-              widget.item.$4,
+              item.$4,
               height: 141,
               width: 280,
               fit: BoxFit.cover,
@@ -37,7 +32,7 @@ class _CustomCardState extends State<CustomCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      widget.item.$1,
+                      item.$1,
                       style: const TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
@@ -46,7 +41,7 @@ class _CustomCardState extends State<CustomCard> {
                       ),
                     ),
                     Text(
-                      widget.item.$2,
+                      item.$2,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         height: 1.2,
@@ -57,10 +52,10 @@ class _CustomCardState extends State<CustomCard> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.item.$3,
+                          item.$3,
                           style: const TextStyle(height: 1, fontSize: 12),
                         ),
-                        widget.action ?? Container(),
+                        action ?? Container(),
                       ],
                     ),
                   ],

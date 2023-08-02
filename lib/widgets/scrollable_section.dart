@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'custom_card.dart';
+import 'package:task_1/widgets/cards/lesson_card.dart';
+import 'package:task_1/models/program.dart';
+import 'cards/custom_card.dart';
+import 'cards/program_card.dart';
+import '../models/lesson.dart';
 
 class ScrollableSection extends StatefulWidget {
   final String title;
-  final List<(String, String, String, String)> items;
+  final List<Object> items;
   final VoidCallback onSeeAllPressed;
   final Widget? action;
   const ScrollableSection({
@@ -62,7 +66,13 @@ class _ScrollableSectionState extends State<ScrollableSection> {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               var item = widget.items[index];
-              return CustomCard(item: item, action: widget.action);
+              switch (item.runtimeType) {
+                case Program:
+                  return ProgramCard(program: item as Program);
+                case Lesson:
+                  return LessonCard(lesson: item as Lesson);
+              }
+              return null;
             },
             itemCount: widget.items.length,
           ),

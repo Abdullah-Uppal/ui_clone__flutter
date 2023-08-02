@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:task_1/app_state.dart';
+import 'package:task_1/network/api_service.dart';
 import 'home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  var app = ChangeNotifierProvider(
+    create: (context) => AppState(),
+    child: const MyApp(),
+  );
+  runApp(app);
 }
 
 class MyApp extends StatelessWidget {
@@ -25,4 +32,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
