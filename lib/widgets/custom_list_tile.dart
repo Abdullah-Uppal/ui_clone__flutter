@@ -52,9 +52,14 @@ class CustomListTile extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  Text(
-                    subtitle,
-                    style: const TextStyle(height: 1, fontSize: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        subtitle,
+                        style: const TextStyle(height: 1, fontSize: 12),
+                      ),
+                    ],
                   ),
                 ],
               ),
