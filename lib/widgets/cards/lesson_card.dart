@@ -9,14 +9,12 @@ class LessonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int randomNumber =
-        Random(DateTime.now().millisecondsSinceEpoch).nextInt(2) + 1;
     return CustomCard(
         item: (
           lesson.category ?? "Uncategorized",
           lesson.name ?? "No name",
           "${lesson.duration ?? 0} min",
-          "assets/images/image$randomNumber.png"
+          lesson.image,
         ),
         action: lesson.locked ?? true
             ? Icon(

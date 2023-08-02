@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -9,14 +10,18 @@ class Program {
   final String? category;
   final int? lesson;
   final String? id;
+  late final String image;
 
-  const Program({
-    this.createdAt,
-    this.name,
-    this.category,
-    this.lesson,
-    this.id,
-  });
+  Program(
+      {this.createdAt,
+      this.name,
+      this.category,
+      this.lesson,
+      this.id,
+  }) {
+    int randInt = Random(DateTime.now().microsecondsSinceEpoch).nextInt(2) + 1;
+    image = "assets/images/image$randInt.png";
+  }
 
   @override
   String toString() {

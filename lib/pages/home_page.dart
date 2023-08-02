@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_1/app_state.dart';
 import 'package:task_1/widgets/loading_scrollable_section.dart';
-import 'widgets/top_container.dart';
-import 'globals.dart';
-import 'widgets/scrollable_section.dart';
-import 'custom_icons.dart';
+import '../widgets/top_container.dart';
+import '../globals.dart';
+import '../widgets/scrollable_section.dart';
+import '../custom_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -90,11 +90,14 @@ class _HomePageState extends State<HomePage> {
                     );
                   }
                   _index++;
-                  Future<List<Object>>? future = null;
+                  Future<List<Object>>? future;
+                  String route = "";
                   if (key == "Programs for you") {
                     future = state.programs;
+                    route = "/programs";
                   } else if (key == "Lessons for you") {
                     future = state.lessons;
+                    route = "/lessons";
                   }
                   if (future != null) {
                     return FutureBuilder(
@@ -103,7 +106,9 @@ class _HomePageState extends State<HomePage> {
                         if (snapshot.hasData) {
                           return ScrollableSection(
                             title: key,
-                            onSeeAllPressed: () {},
+                            onSeeAllPressed: () {
+                              Navigator.of(context).pushNamed(route);
+                            },
                             items: snapshot.data!.take(10).toList(),
                             action: action,
                           );
