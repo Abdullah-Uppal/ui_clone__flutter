@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_1/app_state.dart';
 import 'package:task_1/globals.dart';
-import 'package:task_1/models/lesson.dart';
 import 'package:task_1/widgets/custom_list_tile.dart';
 
 class ViewAllLessonsPage extends StatelessWidget {

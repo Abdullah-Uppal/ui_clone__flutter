@@ -12,7 +12,7 @@ class ProgramCard extends StatelessWidget {
       program.category ?? "Uncategorized",
       program.name ?? "No name",
       "${program.lesson} lessons",
-      program.image ?? "assets/images/image1.png",
+      program.image,
     ));
   }
 }
